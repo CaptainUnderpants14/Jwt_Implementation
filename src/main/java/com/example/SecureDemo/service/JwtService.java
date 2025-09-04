@@ -12,10 +12,10 @@ import java.util.function.Function;
 @Service
 public class JwtService {
 
-    private final String SECRET_KEY = "SomeRandomStringOfCharacter32Characters";
+    private final String Key_sec = "Some32CharactersLongKeyThatNoOneKnows";
 
     private SecretKey getSignInKey(){
-        return Keys.hmacShaKeyFor(SECRET_KEY.getBytes(StandardCharsets.UTF_8));
+        return Keys.hmacShaKeyFor(Key_sec.getBytes(StandardCharsets.UTF_8));
     }
 
     public <T> T extractClaims(String token, Function<Claims,T> resolver){
